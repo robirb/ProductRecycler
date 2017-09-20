@@ -2,6 +2,7 @@ package com.linear.productrecycler;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,12 +28,18 @@ public class DetailActivity extends AppCompatActivity {
         ivPhoto = (ImageView) findViewById(R.id.photo);
         tvName = (TextView) findViewById(R.id.name);
 
-        if (position%2==0){
-        ivPhoto.setImageResource(R.drawable.bath);
-        }else {
-            ivPhoto.setImageResource(R.drawable.food);
+        if(product==null){
+            Log.d("HHHH","Product Null");
+        }else{
+            if (position%2==0){
+                ivPhoto.setImageResource(R.drawable.bath);
+            }else {
+                ivPhoto.setImageResource(R.drawable.food);
+            }
+            tvName.setText(product.getName());
         }
-        tvName.setText(product.getName());
+
+
     }
 
     }

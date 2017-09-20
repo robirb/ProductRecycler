@@ -1,5 +1,8 @@
 package com.linear.productrecycler;
 
+import android.util.Log;
+import android.widget.Toast;
+
 import java.io.Serializable;
 
 public class Product implements Serializable {
@@ -11,7 +14,9 @@ public class Product implements Serializable {
     }
 
     public Product(String name, String productName, String price) {
-
+        this.name = name;
+        this.productName =productName ;
+        this.price=price;
     }
 
     public String getName() {

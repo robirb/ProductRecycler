@@ -39,22 +39,22 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
 
 
         rvProducts = (RecyclerView) findViewById(R.id.rv_students);
-        rvProducts.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        rvProducts.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false));
         rvProducts.setAdapter(adapter);
     }
 
     @Override
     public void onItemClick(int position) {
 
-        Product student = productList.get(position);
+        Product product = productList.get(position);
 
         Intent intent = new Intent(getApplicationContext(),DetailActivity.class);
-        intent.putExtra("student",student);
+        intent.putExtra("product",product);
         intent.putExtra("position",position);
 
         startActivity(intent);
 
-        Log.d("KKKK",position+"");
+        Log.d("",position+"");
 
     }
 }

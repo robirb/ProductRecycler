@@ -15,7 +15,7 @@ import java.util.List;
  * Created by IMAT PC-01 on 9/18/2017.
  */
 
-public class ProductHolder extends RecyclerView.Adapter<ProductAdapter.ProductHolder> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductHolder> {
 
     private Context context;
     private List<Product> productList;
@@ -24,9 +24,9 @@ public class ProductHolder extends RecyclerView.Adapter<ProductAdapter.ProductHo
     private ItemClickListener listener;
 
 
-    public ProductHolder(Context context, List<Product> studentList) {
+    public ProductAdapter(Context context, List<Product> productList) {
         this.context = context;
-        this.productList = studentList;
+        this.productList = productList;
         this.inflater = LayoutInflater.from(context);
     }
 
@@ -44,12 +44,12 @@ public class ProductHolder extends RecyclerView.Adapter<ProductAdapter.ProductHo
     }
 
     @Override
-    public void onBindViewHolder(StudentHolder holder, int position) {
-        Product student = productList.get(position);
+    public void onBindViewHolder(ProductHolder holder,int position) {
+        Product product = productList.get(position);
 
-        holder.tvName.setText(student.getName());
-        holder.tvClass.setText(student.getProductName());
-        holder.tvRoll.setText(student.getPrice());
+        holder.tvName.setText(product.getName());
+        holder.tvProductName.setText(product.getProductName());
+        holder.tvPrice.setText(product.getPrice());
 
         if(position%2==0){
             holder.imageView.setImageResource(R.drawable.bath);
@@ -64,17 +64,17 @@ public class ProductHolder extends RecyclerView.Adapter<ProductAdapter.ProductHo
         return productList.size();
     }
 
-    public class StudentHolder extends RecyclerView.ViewHolder{
+    public class ProductHolder extends RecyclerView.ViewHolder{
 
-        TextView tvName,tvClass,tvRoll;
+        TextView tvName,tvProductName,tvPrice;
         ImageView imageView;
 
-        public StudentHolder(View itemView) {
+        public ProductHolder(View itemView) {
             super(itemView);
 
             tvName = itemView.findViewById(R.id.name);
-            tvClass = itemView.findViewById(R.id.product_name);
-            tvRoll = itemView.findViewById(R.id.price);
+            tvProductName = itemView.findViewById(R.id.product_name);
+            tvPrice = itemView.findViewById(R.id.price);
 
             imageView = itemView.findViewById(R.id.photo);
 
